@@ -1,0 +1,331 @@
+Food
+Restaurants
+Salad
+Coffee & Tea
+Breakfast & Brunch
+Sandwiches
+Bakeries
+Live/Raw Food
+Seafood
+Beer Bar
+Beer
+Wine & Spirits
+Bars
+Nightlife
+Mexican
+Sports Bars
+Tacos
+Pizza
+Burgers
+Cafes
+American (Traditional)
+Chinese
+Bubble Tea
+Vietnamese
+Chicken Wings
+Italian
+Coffee Roasteries
+Thai
+Gluten-Free
+Vegan
+Fast Food
+Pubs
+Arts & Entertainment
+Kombucha
+Wineries
+Themed Cafes
+Pets
+Women's Clothing
+Shopping
+Pet Adoption
+Fashion
+Pet Sitting
+Accessories
+Pet Stores
+Pet Services
+Delis
+Food Delivery Services
+Caterers
+Event Planning & Services
+Health & Medical
+Juice Bars & Smoothies
+Festivals
+Food Stands
+Breweries
+Food Court
+Venues & Event Spaces
+Wine Tasting Room
+Shopping Centers
+Brewpubs
+Convenience Stores
+Gas Stations
+Automotive
+Acai Bowls
+Ice Cream & Frozen Yogurt
+Desserts
+Argentine
+American (New)
+Asian Fusion
+Szechuan
+Food Trucks
+German
+Hot Dogs
+Specialty Food
+Health Markets
+Vegetarian
+Wine Bars
+Soup
+Grocery
+Department Stores
+Wholesale Stores
+Home & Garden
+Home Decor
+Indian
+French
+Religious Organizations
+Churches
+Sushi Bars
+Cocktail Bars
+Wedding Planning
+Farmers Market
+Tapas Bars
+Spanish
+Latin American
+Japanese
+Korean
+Club Crawl
+Shaved Ice
+Drugstores
+Pharmacy
+New Mexican Cuisine
+Street Vendors
+Cupcakes
+Mediterranean
+Greek
+Ethnic Food
+Gastropubs
+Barbeque
+Fruits & Veggies
+Transportation
+Taxis
+Limos
+Hotels & Travel
+Seafood Markets
+Art Galleries
+Bagels
+Coffeeshops
+Cooking Schools
+Cooking Classes
+Education
+Specialty Schools
+Arts & Crafts
+Wine Tours
+Tours
+Party Bus Rentals
+Party & Event Planning
+Local Flavor
+Noodles
+Ramen
+Poke
+Social Clubs
+Hotels
+Karaoke
+Tapas/Small Plates
+Custom Cakes
+Patisserie/Cake Shop
+Dance Clubs
+Chicken Shop
+Beer Gardens
+Pop-Up Restaurants
+Smog Check Stations
+Roadside Assistance
+Auto Repair
+Smokehouse
+Steakhouses
+Personal Chefs
+Weight Loss Centers
+Nutritionists
+Lounges
+Beer Tours
+Horseback Riding
+Active Life
+Cajun/Creole
+Internet Cafes
+Hot Pot
+Propane
+Local Services
+Flowers & Gifts
+Gift Shops
+Vitamins & Supplements
+Soul Food
+Comfort Food
+Water Purification Services
+Contractors
+Home Services
+Water Delivery
+Plumbing
+Beauty & Spas
+Skin Care
+Music Venues
+Hawaiian
+Australian
+Tea Rooms
+Organic Stores
+Meat Shops
+Party Supplies
+Diners
+Tex-Mex
+Donuts
+Empanadas
+Beverage Store
+Do-It-Yourself Food
+Creperies
+Middle Eastern
+Cheese Shops
+Tasting Classes
+Wine Tasting Classes
+Brazilian
+Boating
+Fish & Chips
+Mongolian
+Chocolatiers & Shops
+Special Education
+Hookah Bars
+Community Service/Non-Profit
+International Grocery
+Cosmetics & Beauty Supply
+Florists
+Jazz & Blues
+Champagne Bars
+Candy Stores
+Taiwanese
+Herbs & Spices
+Olive Oil
+Pakistani
+Speakeasies
+Food Tours
+Walking Tours
+Art Tours
+Furniture Stores
+Electronics
+Cheesesteaks
+Imported Food
+Public Services & Government
+Landmarks & Historical Buildings
+Boat Tours
+Golf
+Appliances
+Kitchen & Bath
+Educational Services
+Cafeteria
+Gay Bars
+Bowling
+Arcades
+Delicatessen
+Honey
+Souvenir Shops
+Wildlife Control
+Pest Control
+Moroccan
+Tuscan
+Basque
+Distilleries
+Wraps
+Dim Sum
+Piano Bars
+Peruvian
+Buffets
+CSA
+Modern European
+Toy Stores
+Tabletop Games
+Cannabis Clinics
+Jewelry
+Tobacco Shops
+Whiskey Bars
+Bartenders
+Kebab
+Car Wash
+Auto Parts & Supplies
+Salvadoran
+Pan Asian
+Travel Services
+Massage
+Resorts
+Day Spas
+Cuban
+Floral Designers
+Water Stores
+Belgian
+Gelato
+British
+Bike tours
+Mountain Biking
+Bike Rentals
+Fitness & Instruction
+Falafel
+Professional Services
+Auto Detailing
+Hong Kong Style Cafe
+Airport Shuttles
+Public Transportation
+Yoga
+Trainers
+Boot Camps
+Gyms
+Service Stations
+Acupuncture
+Irish
+Personal Assistants
+Couriers & Delivery Services
+Caribbean
+Halal
+Himalayan/Nepalese
+Arabic
+Pretzels
+Hunting & Fishing Supplies
+Sporting Goods
+Cantonese
+Pasta Shops
+Wholesalers
+Southern
+Ethiopian
+Pop-up Shops
+Shared Office Spaces
+Real Estate
+Commercial Real Estate
+Persian/Iranian
+Herbal Shops
+Turkish
+Lebanese
+Dive Bars
+Hair Salons
+Meditation Centers
+Alternative Medicine
+Community Gardens
+Bus Tours
+Appliances & Repair
+Office Equipment
+Nurseries & Gardening
+Indonesian
+Livestock Feed & Supply
+Bocce Ball
+Trivia Hosts
+Ethnic Grocery
+Fondue
+Butcher
+Brewing Supplies
+Scandinavian
+Musicians
+Antiques
+Macarons
+Health Retreats
+Outlet Stores
+Discount Store
+Cideries
+Rafting/Kayaking
+Public Markets
+Garage Door Services
+Keys & Locksmiths
+Architectural Tours
+Self Storage
