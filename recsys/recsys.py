@@ -8,7 +8,7 @@ bart_model_name = 'facebook/bart-large-cnn'
 tokenizer = BartTokenizer.from_pretrained(bart_model_name)
 model = BartForConditionalGeneration.from_pretrained(bart_model_name)
 
-from flask import Flask
+from flask import Flask, request
 app = Flask(__name__)
 
 @app.route('/run', methods=['POST'])
@@ -17,12 +17,13 @@ def run() -> int:
     assert os.path.isfile('input.txt')
     assert os.path.isdir('data')
 
-    user = {}
-    with open('input.txt', "r") as file:
-        lines = file.readlines()
-        user['count'] = int(lines[0].strip())
-        user['state'] = lines[1].strip()
-        user['prefs'] = [pref.strip() for pref in lines[2].split(',')]
+    user = request.json
+
+    #with open('input.txt', "r") as file:
+    #    lines = file.readlines()
+    #    user['count'] = int(lines[0].strip())
+    #    user['state'] = lines[1].strip()
+    #    user['prefs'] = [pref.strip() for pref in lines[2].split(',')]
 
         #exit(1)
 

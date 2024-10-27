@@ -1,18 +1,17 @@
-import {fs} from 'fs';
-async function python_run() {
+async function python_run(a,b,c) {
     try {
         const response = await fetch('http://127.0.0.1:500/run', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
+            body: JSON.stringify({ 'count': a, 'state': b, 'prefs': c}),
         });
         console.log(response);
     } catch (err) {
         console.error("Fetch error:", err);
     }
 }
-
 
 document.addEventListener('DOMContentLoaded', function(){
 
@@ -102,14 +101,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     function save_choices() {
         let n = 3;
-        //var fs = require('fs');
-
-        var file = fs.createWriteStream('recsys/input.txt');
-        file.on('error', function(err) { console.log(err); });
-        file.write(n+'\n')
-        file.write(saved_choices[0]+'\n')
-        file.write(saved_choices[1]+','+saved_choices[2]+'\n')
-        file.end();
+        python_run(n,saved_choices[0],saved_choices[1]+','+saved_choices[2])
     }
 
     function create_p(question) {
