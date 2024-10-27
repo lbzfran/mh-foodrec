@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/sharkTalk.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=send" />        
         <link rel="icon" href="images/image.png" type="image/x-icon" />
         <script type="text/javascript" src="js/script.js"></script>
     </head>
@@ -30,26 +32,24 @@
             <h1>Hungry Shark</h1>
             <div id="shark">
                 <img src="images/image.png" id="shark" alt="sharkie the shark">
+
+                <div id="shark-chat">
+                  <ul class="chat">
+                    <li class=" text incoming">
+                      <p>Hiya! <br>Where are you heading?</p>
+                    </li>
+                    <li class="text outgoing">
+                      <textarea placeholder="Enter the name of the state... (ex: CA, NY, etc.)" required></textarea>
+                      <span id="send" class="material-symbols-outlined">send</span>
+                    </li>
+                  </ul>
+                </div>
             </div>
 
             <p>Sharkie is hungry and indecisive! But so are you...</p>
             <p>Let Sharkie think of some food reccomendations!</p>
 
             <button class="bot-button" id="shark-talks">Sharkie Foodie Thoughts</button>
-
-            <div class="shark-chat">
-              <div class="food-categories">
-                <ul>
-                  <li>American</li>
-                  <li>Peruvian</li>
-                  <li>Asain</li>
-                  <li>Fusion</li>
-                  <li>Latin</li>
-                  <li>Middle Eastern</li>
-                </ul>
-              </div>
-            </div>
-
         </div>
 
         <br>

@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
         event.target.style.display = 'none';
 
+        const box = document.getElementById('shark-chat');
+        box.style.visibility = 'visible';
+
+        const send = document.getElementById('send');
+        send.style.visibility = 'visible';
+
         shark.classList.add('horizonTranslate');
         shark.margin = "20%";
 
