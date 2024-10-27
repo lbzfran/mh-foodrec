@@ -1,17 +1,13 @@
 async function python_run(a,b,c) {
-    try {
-        const response = await fetch('http://127.0.0.1:5000/runpy', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
-            },
-            body: JSON.stringify({ 'count': a, 'state': b, 'prefs': c}),
-        });
-        console.log('response:',response);
-    } catch (err) {
-        console.error("Fetch error:", err);
-    }
+    const response = await fetch('http://127.0.0.1:5000/runpy', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
+        },
+        body: JSON.stringify({ 'count': a, 'state': b, 'prefs': c}),
+    })
+    return response;
 }
 
 function process_location(lat, long) {
@@ -46,8 +42,8 @@ function store_data(){
         })
 }
 
-function save_choices(b, c) {
-    let a = 3;
+export function save_choices(b, c) {
+    let a = 1;
     try {
         python_run(a,b,c);
     }
