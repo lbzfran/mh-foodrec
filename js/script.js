@@ -20,6 +20,31 @@ function process_location(lat, long) {
     return new_link;
 }
 
+
+function store_data(){
+  fetch('recsys/data/processed.json')
+    .then(response => response.json())
+    .then(data => {
+      const final = document.querySelector(".chat");
+      final.innerHTML = '';
+
+      const businessName = document.createElement('p');
+      businessName.textContent = "You should check out " + data.name +".";
+
+      const businessLocation = document.createElement('p');
+      businessLocation.textContent = "Theyre located at " + process_location(data.latitude, data.longitude) +".";
+
+      const summ = document.createElement('p');
+      summ.textContent = data.summary;
+      
+      final.classList.add("results");
+
+      final.appendChild(businessName);
+      final.appendChild(businessLocation);
+      final.appendChild(summ);
+    })
+}
+
 document.addEventListener('DOMContentLoaded', function(){
 
     let shark_button = document.querySelector('.bot-button')
@@ -91,16 +116,21 @@ document.addEventListener('DOMContentLoaded', function(){
             console.log(saved_choices);
             // create text file
             save_choices();
+            store_data();
+            const outgoing = document.querySelector('.text.outgoing');
+            //alert(outgoing)
+            outgoing.innerHTML = "";
+
             // call python
-            python_run()
-            .then(function() {
-                fetch('recsys/data/processed.json')
-                    .then((response) => response.json())
-                    .then((json) => console.log(json));
-            })
-            .catch(function(err) {
-                console.log(err)
-            })
+            //python_run()
+            //.then(function() {
+            //    fetch('recsys/data/processed.json')
+            //        .then((response) => response.json())
+            //        .then((json) => console.log(json));
+            //})
+            //.catch(function(err) {
+            //    console.log(err)
+            //})
           }
       })
       return newButton;
