@@ -1,13 +1,14 @@
 async function python_run(a,b,c) {
     try {
-        const response = await fetch('http://127.0.0.1:500/run', {
+        const response = await fetch('http://127.0.0.1:5000/runpy', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'http://127.0.0.1:5000',
             },
             body: JSON.stringify({ 'count': a, 'state': b, 'prefs': c}),
         });
-        console.log(response);
+        console.log('response:',response);
     } catch (err) {
         console.error("Fetch error:", err);
     }
@@ -22,27 +23,37 @@ function process_location(lat, long) {
 
 
 function store_data(){
-  fetch('recsys/data/processed.json')
-    .then(response => response.json())
-    .then(data => {
-      const final = document.querySelector(".chat");
-      final.innerHTML = '';
+    fetch('recsys/data/processed.json')
+        .then(response => response.json())
+        .then(data => {
+            const final = document.querySelector(".chat");
+            final.innerHTML = '';
 
-      const businessName = document.createElement('p');
-      businessName.textContent = "You should check out " + data.name +".";
+            const businessName = document.createElement('p');
+            businessName.textContent = "You should check out " + data.name +".";
 
-      const businessLocation = document.createElement('p');
-      businessLocation.textContent = "Theyre located at " + process_location(data.latitude, data.longitude) +".";
+            const businessLocation = document.createElement('p');
+            businessLocation.textContent = "Theyre located at " + process_location(data.latitude, data.longitude) +".";
 
-      const summ = document.createElement('p');
-      summ.textContent = data.summary;
-      
-      final.classList.add("results");
+            const summ = document.createElement('p');
+            summ.textContent = data.summary;
 
-      final.appendChild(businessName);
-      final.appendChild(businessLocation);
-      final.appendChild(summ);
-    })
+            final.classList.add("results");
+
+            final.appendChild(businessName);
+            final.appendChild(businessLocation);
+            final.appendChild(summ);
+        })
+}
+
+function save_choices(b, c) {
+    let a = 3;
+    try {
+        python_run(a,b,c);
+    }
+    catch (err) {
+        console.log(err);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -99,53 +110,50 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     function create_button(name) {
-      const newButton = document.createElement('button');
+        const newButton = document.createElement('button');
 
-      //newButton.attributes
-      newButton.innerHTML = name;
+        //newButton.attributes
+        newButton.innerHTML = name;
 
-      newButton.classList.add("answers");
+        newButton.classList.add("answers");
 
-      newButton.addEventListener('click', function(e) {
-          saved_choices.push(e.target.innerHTML)
-          if (choice_idx < 2) {
-              choice_idx += 1;
-              set_outgoing(quests[choice_idx], choices[choice_idx]);
-          } else {
-            // finished asking
-            console.log(saved_choices);
-            // create text file
-            save_choices();
-            store_data();
-            const outgoing = document.querySelector('.text.outgoing');
-            //alert(outgoing)
-            outgoing.innerHTML = "";
-
-            // call python
-            //python_run()
-            //.then(function() {
-            //    fetch('recsys/data/processed.json')
-            //        .then((response) => response.json())
-            //        .then((json) => console.log(json));
-            //})
-            //.catch(function(err) {
-            //    console.log(err)
-            //})
-          }
-      })
-      return newButton;
-    }
-
-    function save_choices() {
-        let n = 3;
-        python_run(n,saved_choices[0],saved_choices[1]+','+saved_choices[2])
+        newButton.addEventListener('click', function(e) {
+            saved_choices.push(e.target.innerHTML)
+            if (choice_idx < 2) {
+                choice_idx += 1;
+                set_outgoing(quests[choice_idx], choices[choice_idx]);
+            } else {
+                // finished asking
+                // console.log(saved_choices);
+                // create text file
+                store_data();
+                const outgoing = document.querySelector('.text.outgoing');
+                //alert(outgoing)
+                outgoing.innerHTML = "";
+                let a = save_choices(saved_choices[0], saved_choices[1]+','+saved_choices[2])
+                    .then(function() {
+                        fetch('recsys/data/processed.json')
+                            .then((response) => response.json())
+                            .then((json) => console.log(json))
+                            .then(function() {
+                                // ingoing: the result
+                            });
+                    })
+                    .catch(function(err) {
+                        console.log('err at save:', err)
+                    })
+                console.log(a);
+                return;
+            }
+        })
+        return newButton;
     }
 
     function create_p(question) {
-      const newP = document.createElement('p');
-      newP.innerHTML = question;
-      newP.classList.add("shark-q");
-      return newP
+        const newP = document.createElement('p');
+        newP.innerHTML = question;
+        newP.classList.add("shark-q");
+        return newP
     }
 
 })
