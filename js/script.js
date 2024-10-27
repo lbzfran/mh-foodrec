@@ -1,22 +1,28 @@
 
 document.addEventListener('DOMContentLoaded', function(){
-  
-  
-  let x = document.getElementById('shark').style.left;
-  let y = document.getElementById('shark').style.right;
-  
 
-  let shark = document.getElementById('shark')
-  let shark_button = document.querySelector('.bot-button')
-  function moveShark(e){
-    x -= 25;
-    e.style.left = x + 'px';
-  }
+    let shark_button = document.querySelector('.bot-button')
 
-  shark_button.addEventListener('click', function(event){
-    moveShark(event);
-    console.log(event.target)
-  })
+    let x = 0;
+    let y = 0;
 
-  
+    let shark = document.querySelector('div #shark')
+
+    function shark_setpos(a,b) {
+        shark.style.left = a + 'px';
+        shark.style.top = b + 'px';
+    }
+
+    shark_button.addEventListener('click', function(event){
+        x += 10;
+        y += 10;
+
+        shark_setpos(x,y);
+
+
+        console.log(shark)
+        console.log(event.target)
+    })
+
+
 })
