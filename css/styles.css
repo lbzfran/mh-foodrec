@@ -114,6 +114,7 @@ ul li a {
   object-fit: contain;
 }
 
+<<<<<<< HEAD
 .horizonTranslate {
   -webkit-transition: 3s;
   -moz-transition: all 3s ease-in-out;
@@ -121,6 +122,21 @@ ul li a {
   -o-transition: all 3s ease-in-out;
   transition: all 3s ease-in-out;
   margin-right: 50% !important;
+=======
+<<<<<<< HEAD
+@keyframes shark_left {
+    from { left: 0%; }
+    to { left: 15%; }
+=======
+.horizonTranslate {
+    -webkit-transition: all 3s ease-in-out;
+    -moz-transition: all 3s ease-in-out;
+    -ms-transition: all 3s ease-in-out;
+    -o-transition: all 3s ease-in-out;
+    transition: all 3s ease-in-out;
+    margin-right: 60% !important;
+>>>>>>> 11793fc (fixed styling for shark anim)
+>>>>>>> e5bd7f2 (fixed styling for shark anim)
 }
 
 div #shark {
