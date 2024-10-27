@@ -133,7 +133,7 @@ ul li a {
 }
 
 .horizonTranslate {
-  -webkit-transition: 3s;
+  -webkit-transition: all 3s ease-in-out;
   -moz-transition: all 3s ease-in-out;
   -ms-transition: all 3s ease-in-out;
   -o-transition: all 3s ease-in-out;
