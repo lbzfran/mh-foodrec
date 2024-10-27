@@ -75,18 +75,12 @@ document.addEventListener('DOMContentLoaded', function(){
         incoming.appendChild(create_p("What kind of food are we craving?"));
       })
       return newButton;
-      // let outgoing = document.querySelector('li .text outgoing')
-      // outgoing.appendChild(newButton)
-      //document.body.appendChild(newButton);
     }
 
     function create_p(question) {
       const newP = document.createElement('p');
-
       newP.innerHTML = question;
-
       newP.classList.add("shark-q");
-    
       return newP
     }
 })
