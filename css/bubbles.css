@@ -1,111 +1,114 @@
 .bubbles {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
-  transform: translateZ(0);
+  /* position: fixed; */
+  /* width: 100%;
+  height: 100%; */
+  overflow: hidden;
   top: 0;
-  left: 0;
+  right: 50%;
   z-index: 0;
+  /* opacity: 0.5; */
 }
 
 .bubble-animation {
   position: absolute;
-  bottom: -100px;
-  width: 40px;
-  height: 40px;
+  bottom: -850px;
+  width: 200px;
+  height: 200px;
+  /* left: 50%; */
 
   background: rgb(235, 235, 235);
   opacity: 0.5;
   border-radius: 50%;
-  animation: rise 15s finite;
+  animation: rise 40s infinite ease-in;
+  /* overflow: hidden; */
 }
 
-.bubble:nth-child(1){
-  width:25px;
-  height: 25px;
+.bubble-animation:nth-child(1){
+  width: 50px;
+  height: 50px;
+  left: 30%;
+  animation-duration: 14s;
+}
+
+.bubble-animation:nth-child(2){
+  width:150px;
+  height: 150px;
+  left: 7%;
+  animation-duration: 27s;
+  animation-delay: 3s;
+}
+
+.bubble-animation:nth-child(3){
+  width: 145px;
+  height: 145px;
+  left: 70%;
+  animation-duration: 12s;
+  animation-delay: 3s;
+}
+
+.bubble-animation:nth-child(4){
+  width:75px;
+  height: 75px;
   left: 20%;
-}
-
-.bubble:nth-child(2){
-  width:25px;
-  height: 25px;
-  left: 50%;
-  animation-duration: 7s;
+  animation-duration: 27s;
   animation-delay: 3s;
 }
 
-.bubble:nth-child(3){
-  width:45px;
-  height: 45px;
-  left: 40%;
-  animation-duration: 20s;
-  animation-delay: 3s;
-}
-
-.bubble:nth-child(4){
-  width:25px;
-  height: 25px;
-  left: 20%;
-  animation-duration: 17s;
-  animation-delay: 3s;
-}
-
-.bubble:nth-child(5){
-  width:25px;
-  height: 25px;
-  left: 27%;
-  animation-duration: 37s;
+.bubble-animation:nth-child(5){
+  width:105px;
+  height: 105px;
+  left: 47%;
+  animation-duration: 31s;
   animation-delay: 1s;
 }
 
-.bubble:nth-child(6){
-  width:25px;
-  height: 25px;
-  left: 23%;
-  animation-duration: 17s;
+.bubble-animation:nth-child(6){
+  width:65px;
+  height: 65px;
+  left: 63%;
+  animation-duration: 37s;
   animation-delay: 4s;
 }
 
-.bubble:nth-child(7){
-  width:25px;
-  height: 25px;
-  left: 12%;
+.bubble-animation:nth-child(7){
+  width:45px;
+  height: 45px;
+  left: 92%;
   animation-duration: 14s;
   animation-delay: 3s;
 }
 
-.bubble:nth-child(8){
-  width:25px;
-  height: 25px;
-  left: 13%;
-  animation-duration: 7s;
+.bubble-animation:nth-child(8){
+  width: 40px;
+  height: 40px;
+  left: 83%;
+  animation-duration: 27s;
   animation-delay: 1s;
 }
 
-.bubble:nth-child(9){
+.bubble-animation:nth-child(9){
   width:25px;
   height: 25px;
-  left: 30%;
-  animation-duration: 7s;
+  left: 15%;
+  animation-duration: 18s;
   animation-delay: 3s;
 }
 
-.bubble:nth-child(10){
-  width:25px;
-  height: 25px;
-  left: 33%;
-  animation-duration: 37s;
+.bubble-animation:nth-child(10){
+  width:50px;
+  height: 50px;
+  left: 69%;
+  animation-duration: 25s;
   animation-delay: 3s;
 }
 
 @keyframes rise {
   0%{
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
+    -webkit-transform: translateY(0) translateX(0);
+    transform: translateY(0) translateX(0);
   }
   100%{
-    -webkit-transform: translateY(-1080px) rotate(630deg);
-    transform: translateY(-1080px) rotate(630deg);
+    -webkit-transform: translateY(-2080px) translateX(-200px) rotate(630deg);
+    transform: translateY(-2080px) translateX(-200px) rotate(630deg);
   }
 }

@@ -8,101 +8,105 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/sharkTalk.css">
+        <link rel="stylesheet" href="css/bubbles.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=send" />        
         <link rel="icon" href="images/image.png" type="image/x-icon" />
         <script type="text/javascript" src="js/script.js"></script>
     </head>
 
     <body>
-        <header class="head">
-          <div class="head-item">
-            <img src="images/baby-sharks.png" alt="baby-sharks" class="bb-sharks-img">
-          </div>
-          <div class="head-item">
-            <ul class="header-list">
-                <li class="header-item"><a href="index.html">Home</a></li>
-                <li class="header-item"><a href="#main">Ask Sharkie</a></li>
-                <li class="header-item"><a href="#our-recs">Our Recs</a></li>
-                <li class="header-item"><a href="#about-us">About Us</a></li>
-            </ul>
-          </div>
-        </header>
 
-        <ul class="bubbles">
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
-          <li class="bubble-animation"></li>
+      <section>
+        <div class="bubbles">
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+          <div class="bubble-animation"></div>
+        </div>
+      </section>
+      
+      <header class="head">
+        <div class="head-item">
+          <img src="images/baby-sharks.png" alt="baby-sharks" class="bb-sharks-img">
+        </div>
+        <div class="head-item">
+          <ul class="header-list">
+              <li class="header-item"><a href="index.html">Home</a></li>
+              <li class="header-item"><a href="#main">Ask Sharkie</a></li>
+              <li class="header-item"><a href="#our-recs">Our Recs</a></li>
+              <li class="header-item"><a href="#about-us">About Us</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <div id="main">
+          <h1>Hungry Shark</h1>
+          <div id="shark">
+              <img src="images/image.png" id="shark-img" alt="sharkie the shark">
+
+              <div id="shark-chat">
+                <ul class="chat">
+                  <li class=" text incoming">
+                    <p class="shark-q">Hiya! <br>Where are you heading?</p>
+                  </li>
+                  <li class="text outgoing">
+                    
+                  </li>
+                </ul>
+              </div>
+          </div>
+
+          <p>Sharkie is hungry and indecisive! But so are you...</p>
+          <p>Let Sharkie think of some food reccomendations!</p>
+
+          <button class="bot-button" id="shark-talks">Sharkie Foodie Thoughts</button>
+      </div>
+
+      <br>
+
+      <div id="our-recs">
+        <h2>Our Recommendations</h2>
+
+        <h3>Orange County</h3>
+        <ul class="our-rec-list">
+            <li>Poke</li>
+            <li>Nep cafe</li>
         </ul>
 
-        <div id="main">
-            <h1>Hungry Shark</h1>
-            <div id="shark">
-                <img src="images/image.png" id="shark-img" alt="sharkie the shark">
+        <h3>Los Angeles</h3>
+        <ul class="our-rec-list">
+            <li>Chinese food</li>
+            <li>stuff</li>
+        </ul>
+      </div>
 
-                <div id="shark-chat">
-                  <ul class="chat">
-                    <li class=" text incoming">
-                      <p class="shark-q">Hiya! <br>Where are you heading?</p>
-                    </li>
-                    <li class="text outgoing">
-                      
-                    </li>
-                  </ul>
-                </div>
+      <div id="about-us">
+        <h2>About Us</h2>
+        <div class="team">
+            <div class="team-member">
+                <!-- <img> -->
+                <ul>
+                  <li>Liam</li>
+                  <li>Foodie for 2 years!</li>
+                </ul>
             </div>
 
-            <p>Sharkie is hungry and indecisive! But so are you...</p>
-            <p>Let Sharkie think of some food reccomendations!</p>
-
-            <button class="bot-button" id="shark-talks">Sharkie Foodie Thoughts</button>
-        </div>
-
-        <br>
-
-        <div id="our-recs">
-            <h2>Our Recommendations</h2>
-
-            <h3>Orange County</h3>
-            <ul class="our-rec-list">
-                <li>Poke</li>
-                <li>Nep cafe</li>
-            </ul>
-
-            <h3>Los Angeles</h3>
-            <ul class="our-rec-list">
-                <li>Chinese food</li>
-                <li>stuff</li>
-            </ul>
-        </div>
-
-        <div id="about-us">
-            <h2>About Us</h2>
-            <div class="team">
-                <div class="team-member">
-                    <!-- <img> -->
-                    <ul>
-                      <li>Liam</li>
-                      <li>Foodie for 2 years!</li>
-                    </ul>
-                </div>
-
-                <div class="team-member">
-                    <!-- <img> -->
-                    <ul>
-                      <li>Marcie</li>
-                      <li>Foodie since birth!</li>
-                    </ul>
-                </div>
+            <div class="team-member">
+                <!-- <img> -->
+                <ul>
+                  <li>Marcie</li>
+                  <li>Foodie since birth!</li>
+                </ul>
             </div>
-          </div>
+        </div>
+      </div>
 
-        <footer>hungry-sharks: just as hungry as you, but not as indecisive.</footer>
+      <footer>hungry-sharks: just as hungry as you, but not as indecisive.</footer>
     </body>
 </html>
