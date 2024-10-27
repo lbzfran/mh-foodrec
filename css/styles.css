@@ -107,25 +107,23 @@ ul li a {
 }
 
 #shark {
+  width: 100%;
+  height: 100%;
   padding: 10px;
+  object-fit: contain;
 }
 
-<<<<<<< HEAD
-@keyframes shark_left {
-    from { left: 0%; }
-    to { left: 15%; }
-=======
 .horizonTranslate {
     -webkit-transition: 3s;
-    -moz-transition: 3s;
+    -moz-transition: all 3s ease-in-out;
     -ms-transition: 3s;
     -o-transition: 3s;
-    transition: 3s;
-    margin-right: 20% !important;
->>>>>>> 5800734 (fixed shark anim)
+    transition: all 3s ease-in-out;
+    margin-right: 60% !important;
 }
 
 div #shark {
+    display: flex;
     justify-content: center;
     position: relative;
 }
