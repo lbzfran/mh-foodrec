@@ -8,17 +8,26 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let shark = document.querySelector('div #shark')
 
-    function shark_setpos(a,b) {
-        shark.style.left = a + 'px';
-        shark.style.top = b + 'px';
+    function shark_setpos(a,b,c) {
+        shark.style.left = a + c;
+        shark.style.top = b + c;
+    }
+
+    function sleep(ms) {
+        var start = new Date().getTime();
+        for (var i = 0; i < 1e7; i++) {
+            if ((new Date().getTime() - start) > ms) {
+                break;
+            }
+        }
     }
 
     shark_button.addEventListener('click', function(event){
-        x += 10;
-        y += 10;
 
-        shark_setpos(x,y);
+        event.target.style.display = 'none';
 
+        shark.classList.add('horizonTranslate');
+        shark.margin = "20%";
 
         console.log(shark)
         console.log(event.target)
