@@ -42,17 +42,12 @@ function store_data(){
         })
 }
 
-export function save_choices(b, c) {
-    let a = 1;
-    try {
-        python_run(a,b,c);
-    }
-    catch (err) {
-        console.log(err);
-    }
-}
 
 document.addEventListener('DOMContentLoaded', function(){
+    function save_choices(b, c) {
+        let a = 1;
+        return python_run(a,b,c);
+    }
 
     let shark_button = document.querySelector('.bot-button')
 
@@ -122,10 +117,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 // finished asking
                 // console.log(saved_choices);
                 // create text file
-                store_data();
+                const incoming = document.querySelector('.text.incoming');
+                incoming.innerHTML = "Give me a second.. I got just the thing...";
+                incoming.classList.add("results");
                 const outgoing = document.querySelector('.text.outgoing');
-                //alert(outgoing)
                 outgoing.innerHTML = "";
+
                 let a = save_choices(saved_choices[0], saved_choices[1]+','+saved_choices[2])
                     .then(function() {
                         fetch('recsys/data/processed.json')
@@ -133,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function(){
                             .then((json) => console.log(json))
                             .then(function() {
                                 // ingoing: the result
+                                store_data();
                             });
                     })
                     .catch(function(err) {
