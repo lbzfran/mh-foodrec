@@ -5,41 +5,32 @@
         <title>Hungry Shark</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="icon" href="images/image.png" type="image/x-icon" />
         <script type="text/javascript" src="js/script.js"></script>
     </head>
 
     <body>
-        <div id="header">
+        <header>
             <ul class="header-list">
                 <li class="header-item"><a href="index.html">Home</a></li>
-                <li class="header-item"><a href="#chat-bot">Ask Sharkie</a></li>
+                <li class="header-item"><a href="#main">Ask Sharkie</a></li>
                 <li class="header-item"><a href="#our-recs">Our Recs</a></li>
                 <li class="header-item"><a href="#about-us">About Us</a></li>
             </ul>
-        </div>
+        </header>
 
         <div id="main">
             <h1>Hungry Shark</h1>
-            <img src="images/image.png" class="main-class" alt="sharkie the shark">
+            <img src="images/image.png" id="shark" alt="sharkie the shark">
             <p>Sharkie is hungry and indecisive! But so are you...</p>
+            <p>Let Sharkie think of some food reccomendations!</p>
+
+            <button class="bot-button">Sharkie Foodie Thoughts</button>
         </div>
 
         <br>
-        
-        <div id="chat-bot">
-          <!-- <form>
-            <h1>Ask Sharkie!</h1>
-
-            <label for="input"><b>What are you craving?</b></label>
-            <textarea placeholder="Enter text..." name="input" required></textarea>
-
-            <button type="submit" class="button">Send</button>
-            <button type="reset" class="button">Cancel</button>
-          </form> -->
-          <p>enter</p>
-        </div>
 
         <div id="our-recs">
             <h3>Our Recommendations</h3s>
@@ -78,6 +69,6 @@
             </div>
           </div>
 
-        <footer>hungry-sharks</footer>
+        <footer>hungry-sharks: just as hungry as you, but not as indecisive.</footer>
     </body>
 </html>
