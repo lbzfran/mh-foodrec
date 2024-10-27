@@ -37,7 +37,7 @@ def pd_attribute_unique(df: pd.DataFrame, attr: str) -> list:
 def out_write_category(df: pd.DataFrame, attr: str, filename: str = 'categories.txt'):
     """writes a file containing a newline-separated string based
     on the data of a DataFrame column."""
-    with open(filename, 'w') as f:
+    with open(os.path.join(os.getcwd(), 'data', filename), 'w') as f:
         f.write('\n'.join(pd_attribute_unique(df, attr)))
         #f.write(str_to_list(pd_attribute_unique(df,attr), '\n'))
 

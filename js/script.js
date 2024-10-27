@@ -1,26 +1,23 @@
+async function python_run(a,b,c) {
+    try {
+        const response = await fetch('http://127.0.0.1:500/run', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ 'count': a, 'state': b, 'prefs': c}),
+        });
+        console.log(response);
+    } catch (err) {
+        console.error("Fetch error:", err);
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function(){
 
     let shark_button = document.querySelector('.bot-button')
 
-    let x = 0;
-    let y = 0;
-
     let shark = document.querySelector('div #shark')
-
-    function shark_setpos(a,b,c) {
-        shark.style.left = a + c;
-        shark.style.top = b + c;
-    }
-
-    function sleep(ms) {
-        var start = new Date().getTime();
-        for (var i = 0; i < 1e7; i++) {
-            if ((new Date().getTime() - start) > ms) {
-                break;
-            }
-        }
-    }
 
     shark_button.addEventListener('click', function(event){
 
@@ -36,29 +33,39 @@ document.addEventListener('DOMContentLoaded', function(){
         console.log(event.target)
     })
 
-  
 
+    let choice_idx = 0;
+    let quests = [
+        //"Hiya!<br>Which county in California are we going to?",
+        "Hiya!<br>What state should we look at?",
+        "What kind of food are we craving?",
+        "Want to specify more?",
+    ]
+    let choices = [
+        //["Los Angeles", "San Bernandino", "Orange County", "San Diego"],
+        ['CA', 'NY', 'TX', 'IL'],
+        ["Asian", "Italian", "Mexican", "American"],
+        ["Sushi", "Seafood", "Thai", "Hawaiian"],
+    ]
+    let saved_choices = []
 
-    set_outgoing(['LA','SB', 'OC'])
+    set_outgoing(quests[choice_idx],choices[choice_idx])
 
-    function set_outgoing(values) {
-      const outgoing = document.querySelector('.text.outgoing');
-      //alert(outgoing)
-      outgoing.innerHTML = "";
+    function set_outgoing(quest, opts) {
+        const outgoing = document.querySelector('.text.outgoing');
+        //alert(outgoing)
+        outgoing.innerHTML = "";
 
-      
-
-      // quest(['Hiya! Where county in California are we going to?'])
-      const incoming = document.querySelector('.text.incoming');
-      incoming.innerHTML = "";
-      incoming.appendChild(create_p("Hiya!<br> Which county in California are we going to?"));
-
-      // add button options
-      for (i in values) {
-        outgoing.appendChild(create_button(values[i]))
-      }
+        // quest(['Hiya! Where county in California are we going to?'])
+        const incoming = document.querySelector('.text.incoming');
+        incoming.innerHTML = "";
+        incoming.appendChild(create_p(quest));
+        // add button options
+        for (let i = 0; i < 4; i+=1) {
+            outgoing.appendChild(create_button(opts[i]))
+        }
     }
-  
+
     function create_button(name) {
       const newButton = document.createElement('button');
 
@@ -68,13 +75,33 @@ document.addEventListener('DOMContentLoaded', function(){
       newButton.classList.add("answers");
 
       newButton.addEventListener('click', function(e) {
-        set_outgoing(['Asian','Italian','American', 'Latina American'])
-
-        const incoming = document.querySelector('.text.incoming');
-        incoming.innerHTML = "";
-        incoming.appendChild(create_p("What kind of food are we craving?"));
+          saved_choices.push(e.target.innerHTML)
+          if (choice_idx < 2) {
+              choice_idx += 1;
+              set_outgoing(quests[choice_idx], choices[choice_idx]);
+          } else {
+            // finished asking
+            console.log(saved_choices);
+            // create text file
+            save_choices();
+            // call python
+            python_run()
+            .then(function() {
+                fetch('recsys/data/processed.json')
+                    .then((response) => response.json())
+                    .then((json) => console.log(json));
+            })
+            .catch(function(err) {
+                console.log(err)
+            })
+          }
       })
       return newButton;
+    }
+
+    function save_choices() {
+        let n = 3;
+        python_run(n,saved_choices[0],saved_choices[1]+','+saved_choices[2])
     }
 
     function create_p(question) {
@@ -83,5 +110,6 @@ document.addEventListener('DOMContentLoaded', function(){
       newP.classList.add("shark-q");
       return newP
     }
+
 })
 
