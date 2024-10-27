@@ -13,6 +13,13 @@ async function python_run(a,b,c) {
     }
 }
 
+function process_location(lat, long) {
+    const new_link = document.createElement('a');
+    new_link.href = `http://www.google.com/maps/place/${lat},${long}`;
+    new_link.alt = "recc link";
+    return new_link;
+}
+
 document.addEventListener('DOMContentLoaded', function(){
 
     let shark_button = document.querySelector('.bot-button')
