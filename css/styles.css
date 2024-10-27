@@ -110,19 +110,9 @@ ul li a {
   padding: 10px;
 }
 
-<<<<<<< HEAD
 @keyframes shark_left {
     from { left: 0%; }
     to { left: 15%; }
-=======
-.horizonTranslate {
-    -webkit-transition: 3s;
-    -moz-transition: 3s;
-    -ms-transition: 3s;
-    -o-transition: 3s;
-    transition: 3s;
-    margin-right: 20% !important;
->>>>>>> 5800734 (fixed shark anim)
 }
 
 div #shark {
