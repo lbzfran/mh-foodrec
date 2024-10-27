@@ -11,7 +11,7 @@
 
 .bubble-animation {
   position: absolute;
-  bottom: -850px;
+  bottom: 0%;
   width: 200px;
   height: 200px;
   /* left: 50%; */

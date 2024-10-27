@@ -66,6 +66,10 @@ ul li a {
   font-size: 150%;
 }
 
+ul li a:hover {
+  color: white;
+}
+
 .header-list {
   display: flex;
   flex-flow: row wrap;
@@ -152,8 +156,9 @@ div #shark {
   margin-bottom: 10px;
   width: 100%;
   max-width: 400px;
-  height: 70%;
-  min-height: 60px;
+  /* height: 70%; */
+  max-height: 90%;
+  min-height: 80%;
   padding: 10px;
   object-fit: contain;
   align-self: center;
@@ -166,7 +171,8 @@ div #shark {
   margin-bottom: 0;
   margin-top: 0;
   width: 100%;
-  min-height: 100%;
+  min-height: 80%;
+  font-size: 120%;
 }
 
 p {
@@ -211,10 +217,24 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 
 .team p {
-  padding-bottom: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+.name {
+  font-weight: bold;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+
+.team img {
+  height: 200px;
+  align-items: center;
+  width: 100%;
 }
 
 .team-member:nth-of-type(1){
@@ -228,13 +248,6 @@ h1 {
   flex-direction: column;
 }
 
-.team-member ul li {
-  text-decoration: none;
-  list-style: none;
-  text-align: center;
-  font-size: large;
-}
-
 .bot-button {
   margin: 25px;
   padding: 15px;
@@ -244,11 +257,12 @@ h1 {
   background-color: rgb(72, 81, 86);
   color: rgb(204, 204, 204);
   cursor: pointer;
+  font-size: medium;
 }
 
 .bot-button:hover {
   background-color: grey;
-  font-size: small;
+  font-size: medium;
 }
 
 .bot-button:active {
