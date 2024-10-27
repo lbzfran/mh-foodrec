@@ -7,6 +7,4 @@ Although he's a bit slow and only knows a few spots,
 he'll always take you where you need to go.
 
 
-
-
-This was my group's submission for Marina Hacks 4.0 (2024) Submission.
+Submission for Marina Hacks 4.0 (2024) Submission.
