@@ -4,22 +4,32 @@ import re
 import utilities as ut
 
 from transformers import BartTokenizer, BartForConditionalGeneration
-tokenizer = BartTokenizer.from_pretrained('facebook/bart-large-cnn')
-model = BartForConditionalGeneration.from_pretrained('facebook/bart-large-cnn')
+bart_model_name = 'facebook/bart-large-cnn'
+tokenizer = BartTokenizer.from_pretrained(bart_model_name)
+model = BartForConditionalGeneration.from_pretrained(bart_model_name)
 
 # input file must exist to run
 assert os.path.isfile('input.txt')
+
+user = {}
+with open('input.txt', "r") as file:
+    lines = file.readlines()
+    user['count'] = int(lines[0].strip())
+    user['state'] = lines[1].strip()
+    user['prefs'] = [pref.strip() for pref in lines[2].split(',')]
+
+    #exit(1)
+
+print("[*] validated user input")
+#print(user.values())
+#user_state = 'CA'
+#user_prefs = ['Vegan']
 
 #import the dataset
 business_data = pd.read_json(os.path.join(os.getcwd(), 'data', ut.generate_yelp_name('business')), lines=True)
 df = pd.DataFrame.from_dict(business_data)
 
-user = {}
-with open('input.txt', "r") as file:
-    user['count'] = int(file[0])
-    user['state'] = file[1]
-    user['prefs'] = file[2].split(',')
-#user_state = 'CA'
+print("[*] validated business dataset")
 
 #df = df.loc[df['state'] == user_state]
 df = df.loc[df['state'] == user['state']]
@@ -29,18 +39,22 @@ df = df.loc[df['categories'].str.contains("food|restaurant", na=False, flags=re.
 
 # filter categories by the user's food preference
 # this should be received from stdin or file
-#user_prefs = ['Vegan']
 #user_prefs = "|".join(user_prefs)
-df = df.loc[df['categories'].str.contains(ut.list_to_str(user['prefs'], '|'), na=False, flags=re.IGNORECASE, regex=True)]
+df = df.loc[df['categories'].str.contains('|'.join(user['prefs']), na=False, flags=re.IGNORECASE, regex=True)]
 #df.head()
 
 # get the unique values of categories across current df
 # and write it to a file
 # used for chatbot tech
-ut.pd_gen_category(df, 'categories')
+ut.out_write_category(df, 'categories')
 
 # drop the unused columns
-new_df = df[['business_id','name','latitude','longitude','categories','stars', 'review_count']].copy()
+keep_cols = ['business_id','name','latitude','longitude','categories','stars', 'review_count']
+df = df[keep_cols]
+
+print("[*] filtered dataset")
+
+#print(df.head())
 
 # create a new rating column based on the baye's prob of stars and review count.
 def set_bayes(R, W):
@@ -50,23 +64,28 @@ def set_bayes(R, W):
 
 bayes_prob = set_bayes(2, 3)
 
-new_df['new_rating'] = new_df.apply(lambda row: bayes_prob(row['stars'], row['review_count']), axis=1)
-new_df.sort_values('new_rating', ascending=False)
+df['new_rating'] = df.apply(lambda row: bayes_prob(row['stars'], row['review_count']), axis=1)
+df = df.sort_values('new_rating', ascending=False)
+
+print("[*] created new ratings")
+print(df.head())
 
 # writes a json file of the lat and lon values
-#new_df.to_json('latlon.json',orient="records", lines=True)
+#df.to_json('latlon.json',orient="records", lines=True)
 
 # get list of top 10 business ids
-business_ids = new_df.head(user['count'])['business_id'].tolist()
+business_ids = df.head(user['count'])['business_id'].tolist()
 
 # writes a json file of the relevant reviews based on the top businesses.
 lst = {}
 once_passed = False
-
 def json_outquery(dat,wt):
+    """writes a json file given dat and wt as read type.
+    wt should only be either 'w' or 'a', or the function will likely
+    throw an error.
+    """
     with open(os.path.join(os.getcwd(), 'data', 'last_query.json'), wt) as f:
         f.write(''.join(dat))
-
 for i in business_ids:
     lst[i] = ut.json_query_id(i, 'business_id')
     if not once_passed:
@@ -75,8 +94,11 @@ for i in business_ids:
         continue
     json_outquery(lst[i],'a')
 
+
+print("[*] wrote to 'last_query.json'")
+# read the newly created json file
 gen_df = pd.read_json(os.path.join(os.getcwd(), 'data', 'last_query.json'), lines=True)
-gen_df.head()
+#gen_df.head()
 
 # generate a summary of all reviews rela#ted to each business.
 # will take a while the more top ids are queried.
@@ -91,13 +113,20 @@ def gen_summary(text):
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
     return summary
 
-final_df = new_df.head(user['count']).copy()
+# generate final dataframe
+#final_df = df.head(user['count']).copy()
 summaries = []
 for i in business_ids:
     all_reviews = '\n'.join(gen_df.loc[gen_df['business_id'] == i]['text'].tolist())
     summaries.append(gen_summary(all_reviews))
-final_df['summary'] = summaries
+df = df.head(user['count'])
+df['summary'] = summaries
+
+
+print("[*] generated summaries")
 
 # write processed data to json
-final_df.to_json('processed.json', orient="records", lines=True)
+df.to_json(os.path.join(os.getcwd(), 'data', 'processed.json'), orient="records", lines=True)
 #final_df.head()
+
+print("[*] wrote to 'processed.json'")
